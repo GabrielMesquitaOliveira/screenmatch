@@ -20,12 +20,13 @@ public class ScreenmatchApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		ConsumoAPI consumoAPI = new ConsumoAPI();
 		String title = "gotham";
-		var json = consumoAPI.obterDados("https://www.omdbapi.com/?t="+title+"&apikey=87e7d976");
+		var json = consumoAPI.obterDados("https://www.omdbapi.com/?t=" + title + "&apikey=87e7d976");
 		ConverteDados conversor = new ConverteDados();
 		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
 		System.out.println(dados);
-		json = consumoAPI.obterDados("https://www.omdbapi.com/?t="+title+"&season=1&episode=1&apikey=87e7d976");
+		json = consumoAPI.obterDados("https://www.omdbapi.com/?t=" + title + "&season=1&episode=1&apikey=87e7d976");
 		DadosEpisodio dadosEp = conversor.obterDados(json, DadosEpisodio.class);
+		System.out.println(dadosEp);
 	}
 
 }
